@@ -48,7 +48,6 @@ export class AppComponent {
 
 
   onUpdateProduct(product: any) {
-    debugger
     this.ref = this.dialogService.open(ProductListComponent, {
       header: 'Select a Product',
       width: '70%',
