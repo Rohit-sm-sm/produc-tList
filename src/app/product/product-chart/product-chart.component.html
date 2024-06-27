@@ -1,0 +1,17 @@
+<div *ngIf="productData.length > 0">
+  <h1>Bar Chart Product</h1>
+  <div>
+    <ngx-charts-bar-vertical
+      [results]="productData"
+      [view]="view"
+      [xAxis]="showXAxis"
+      [yAxis]="showYAxis"
+      [legend]="showLegend"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      [xAxisLabel]="xAxisLabel"
+      [yAxisLabel]="yAxisLabel"
+      [showGridLines]="showGridLines">
+    </ngx-charts-bar-vertical>
+  </div>
+</div>

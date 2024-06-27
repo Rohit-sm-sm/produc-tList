@@ -1,0 +1,33 @@
+<div class="container text-center p-4">
+  <div class="title bg-warning p-3 mb-2">
+      <h2>Product Table</h2>
+  </div>
+  <div>
+      <p-button label="Create Product" (click)="onAddProduct()"></p-button>
+      <p-table [value]="productList" [tableStyle]="{ 'min-width': '50rem' }">
+          <ng-template pTemplate="header">
+              <tr>
+                  <th>Name</th>
+                  <th>Price</th>
+                  <th>Category</th>
+                  <th>Action</th>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-product>
+              <tr >
+                  <td>{{ product.name }}</td>
+                  <td>{{ product.value }}</td>
+                  <td>{{ product.category }}</td>
+                  <td>
+                    <i class="pi pi-pencil"  (click)="onUpdateProduct(product)" style="font-size: 2rem; margin-right: 25px;"></i>
+                    <i class="pi pi-trash" (click)="onDeleteProduct(product)" style="font-size: 2rem;"></i>
+                  </td>
+              </tr>
+          </ng-template>
+      </p-table>
+  </div>
+  <app-product-chart></app-product-chart>
+</div>
+
+
+

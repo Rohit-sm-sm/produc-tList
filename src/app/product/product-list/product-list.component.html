@@ -1,0 +1,30 @@
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div style="display: flex; align-items: center; justify-content: space-between;">
+      <div class="p-field">
+        <label for="name">Name :</label>
+        <input id="name" type="text" pInputText formControlName="name" autocomplete="off" />
+        <div *ngIf="productForm.get('name').invalid && productForm.get('name').touched">
+          <small class="p-error">Name is required</small>
+        </div>
+      </div>
+      <div class="p-field">
+        <label for="value">Price :</label>
+        <p-inputNumber inputId="value" [min]="0" formControlName="value"></p-inputNumber>
+        <div *ngIf="productForm.get('value').invalid && productForm.get('value').touched">
+          <small class="p-error">Price is required</small>
+        </div>
+      </div>
+      <div class="p-field">
+        <label for="category">Category :</label>
+        <p-dropdown id="category" [options]="categories" optionLabel="label" optionValue="value"
+                    placeholder="Select a category" formControlName="category">
+        </p-dropdown>
+        <div *ngIf="productForm.get('category').invalid && productForm.get('category').touched">
+          <small class="p-error">Category is required</small>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: flex-end; align-items: center; margin-top: 20px;">
+      <button type="submit" pButton label="Submit" [disabled]="!productForm.valid"></button>
+    </div>
+  </form>
